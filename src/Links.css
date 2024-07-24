@@ -1,0 +1,32 @@
+
+
+/* ESTILO LINK GENERAL */
+.link {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  font-family: Arial, sans-serif;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link:hover {
+  background-color:var(--color-primary);
+  color: var(--color-secondary);
+}
+
+/* link visitar  */
+
+.link_visitar {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  font-family: Arial, sans-serif;
+  border-radius: 25px;
+  background-color: var(--color-accent-red);
+}
+
+.link_visitar:hover {
+  background-color:var();
+  color: var(--color-secondary);
+}
