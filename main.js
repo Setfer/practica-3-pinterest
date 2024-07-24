@@ -1,5 +1,5 @@
 //CATEGORIAS A OBTENER
-// COLLECTIONS  https://api.unsplash.com/collections?client_id=BOudSlNYPQTOXv1Xn-uYfoGGzzOUjCqkF9mow4E3_2g&query=street
+// COLLECTIONS  https://api.unsplash.com/collections?client_id=BOudSlNYPQTOXv1Xn-uYfoGGzzOUjCqkF9mow4E3_2
 //FOTOS ALEATORIAS  https:api.unsplash.com/photos/?client_id=BOudSlNYPQTOXv1Xn-uYfoGGzzOUjCqkF9mow4E3_2g
 //BUSCAR FOTOS   https://api.unsplash.com/search/photos/?client_id=BOudSlNYPQTOXv1Xn-uYfoGGzzOUjCqkF9mow4E3_2g&query=street
 
@@ -103,7 +103,7 @@ const buscarFotoNombre = async (input) => {
           .then((data) => {
             const sugerencias = document.querySelector('#sugerencias')
             sugerencias.style.display = 'block'
-            sugerencias.innerHTML = `<p> No se enceontraron resultado, pruebe con ${data[0].title}, ${data[1].title}, ${data[2].title} ,${data[3].title}`
+            sugerencias.innerHTML = `<p> No se encontraron resultados, pruebe con ${data[0].title}, ${data[1].title}, ${data[2].title} ,${data[3].title}`
           })
       }
     })
