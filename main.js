@@ -7,12 +7,14 @@
 import { link } from './src/Links' //importamos el estilo y codigo de los enlaces
 // Añadimos enlaces al header y al footer
 let ul = document.createElement('ul')
-ul.innerHTML = `${link('Inicio', '', 'link link_header ')}  ${link('Explorar', '','link link_header')}  ${link('Crear', '', 'link link_header')}`
+ul.innerHTML = ` <li>${link('Inicio', '', 'link link_header')}</li>
+  <li>${link('Explorar', '', 'link link_header')}</li>
+  <li>${link('Crear', '', 'link link_header')}</li>`
 let navbar = document.querySelector('.navbar')
 navbar.append(ul)
 
 let social = document.querySelector (".social-links")
-social.innerHTML = `${link('Facebook', '', 'link')}  ${link('Twitter', '','link')}  ${link('Instagram', '', 'link')}`
+social.innerHTML = `<li>${link('Facebook', '', 'link')}</li>  <li>${link('Twitter', '','link')}</li>  <li>${link('Instagram', '', 'link')}</li>`
 
 
 //Funcion para insertar imagenes y sus datos
