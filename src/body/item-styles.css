@@ -1,0 +1,62 @@
+.item {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s ease-in-out;
+}
+
+.image {
+  width: 100%;
+  height: 400px;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.item:hover .image {
+  filter: brightness(50%);
+}
+
+.info {
+  padding: 8px;
+  text-align: center;
+}
+
+.info .user-name,
+.info .date {
+  margin: 4px 0;
+}
+
+.info .autor {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+.likes, .link_visitar {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.likes {
+  margin-top: 40px; 
+}
+
+.link_visitar:hover {
+  background-color: var(--color-accent-red);
+}
+
+.item:hover .likes,
+.item:hover .link_visitar {
+  display: block;
+}

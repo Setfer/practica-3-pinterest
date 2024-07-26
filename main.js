@@ -4,33 +4,25 @@
 //BUSCAR FOTOS   https://api.unsplash.com/search/photos/?client_id=BOudSlNYPQTOXv1Xn-uYfoGGzzOUjCqkF9mow4E3_2g&query=street
 
 
-import { link } from './src/Links' //importamos el estilo y codigo de los enlaces
-// Añadimos enlaces al header y al footer
-let ul = document.createElement('ul')
-ul.innerHTML = ` <li>${link('Inicio', '', 'link link_header')}</li>
-  <li>${link('Explorar', '', 'link link_header')}</li>
-  <li>${link('Crear', '', 'link link_header')}</li>`
-let navbar = document.querySelector('.navbar')
-navbar.append(ul)
-
-let social = document.querySelector (".social-links")
-social.innerHTML = `<li>${link('Facebook', '', 'link')}</li>  <li>${link('Twitter', '','link')}</li>  <li>${link('Instagram', '', 'link')}</li>`
-
-
+import { link } from './src/links/Links' //importamos el estilo y codigo de los enlaces
+import { buscarFotoNombre } from "./busqueda-nombre";
+import "./src/header-footer/header-footer"
+import "./src/body/item-styles.css"
+import "./src/body/media.css"
 //Funcion para insertar imagenes y sus datos
-function insertContent(data) {
+export function insertContent(data) {
   sugerencias.style.display = 'none'
   console.log(data)
   let contenedor = document.querySelector('.contenedor')
   contenedor.innerHTML = ''
   data.forEach((item) => {
-    const { likes, links, user, updated_at } = item
+    const { likes, urls, user, updated_at } = item
 
     const divContainer = document.createElement('div')
     divContainer.classList.add('item')
 
     const containerImg = document.createElement('img')
-    containerImg.src = links.download
+    containerImg.src = urls.small
     containerImg.classList.add('image')
 
     const containerLikes = document.createElement('p')
@@ -76,43 +68,6 @@ const mostrarInfoDefault = async () => {
     })
 }
 mostrarInfoDefault()
-//se crea funcion para busquedas de fotos por nombre
-const buscarFotoNombre = async (input) => {
-  fetch(
-    'https://api.unsplash.com/search/photos/?client_id=BOudSlNYPQTOXv1Xn-uYfoGGzzOUjCqkF9mow4E3_2g&per_page=10&query=' +
-      input
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.results.length) {
-        insertContent(data.results)
-      } else {                        //en el caso de que no se encuentre ningun elemento, muestra sugerencias y muestra gatos
-        fetch(
-          'https://api.unsplash.com/search/photos/?client_id=BOudSlNYPQTOXv1Xn-uYfoGGzzOUjCqkF9mow4E3_2g&per_page=10&query=gatos'
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            insertContent(data.results)
-          })
-          .catch((error) => {
-            console.log('error', error)
-          })
-
-        fetch(
-          'https://api.unsplash.com/topics?client_id=BOudSlNYPQTOXv1Xn-uYfoGGzzOUjCqkF9mow4E3_2g'
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            const sugerencias = document.querySelector('#sugerencias')
-            sugerencias.style.display = 'block'
-            sugerencias.innerHTML = `<p> No se encontraron resultados, pruebe con ${data[0].title}, ${data[1].title}, ${data[2].title} ,${data[3].title}`
-          })
-      }
-    })
-    .catch((error) => {
-      console.log('error', error)
-    })
-}
 
 //espertamos a que se termine de cargar el DOM para usar los eventos
 document.addEventListener('DOMContentLoaded', () => {

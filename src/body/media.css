@@ -1,0 +1,39 @@
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    padding: 10px;
+  }
+  #sugerencias{
+    width: 80%;
+  }
+
+  .input_search {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .input_search button {
+    font-size: 14px;
+  }
+
+  .input_search input {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 516px) {
+  .navbar img {
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  #sugerencias{
+    width: 80%;
+  }
+  .link_header{display: none;}
+
+
+  #button_input {
+    width: 20px;
+  }
+}
